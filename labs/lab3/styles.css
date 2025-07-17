@@ -1,0 +1,46 @@
+body {
+    background-color: #f0f0f0;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#main-heading {
+    background-color: yellow;
+    color: red;
+}
+
+#sub-head {
+    border: 5px solid blue;
+    padding: 20px;
+}
+
+h1 {
+    text-decoration-color: #2c3e50;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h2 {
+    margin-top: 30px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.highlight {
+    color: orange;
+    font-weight: bold;
+}
+
+.lower-roman {
+    list-style-type: lower-roman;
+}
+
+.circle {
+    list-style-type: circle;
+}
