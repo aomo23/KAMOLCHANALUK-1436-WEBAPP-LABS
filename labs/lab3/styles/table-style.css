@@ -1,0 +1,65 @@
+#student-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+th {
+    color: white;
+    background-color: #4CAF50;
+    padding: 12px 8px;
+    font-weight: bold;
+    text-align: left;
+}
+
+p {
+    background-color: #e9ecef;
+    color: #6c757d;
+    font-style: italic;
+    text-align: center;
+    padding: 8px;
+}
+
+#active {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+#warn {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+#probation {
+    color: #f44336;
+    font-weight: bold;
+}
+
+body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, Sans-serif;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+h2 {
+    color: #7f8c8d;
+    text-align: center;
+}
