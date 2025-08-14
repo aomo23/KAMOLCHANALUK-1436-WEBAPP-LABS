@@ -1,0 +1,48 @@
+body {
+  font-size: 1.2rem;
+}
+h2{
+    font-weight: bold;
+    text-align: center;
+}
+h1{
+    font-weight: lighter;
+}
+.container {
+  margin: auto;
+  text-align: left;
+}
+.circle{
+    list-style-type: disc; 
+    padding-left: 1.25rem;   
+    margin: 0;
+}
+.numlist{
+    padding-left: 1.25rem;   
+    margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 1rem;
+    text-align: left;
+    padding: 5px;
+  }
+  
+  .container {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 1.2rem;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    text-align: left;
+  }
+  
+  .circle, .numlist {
+    padding-left: 1rem;
+  }
+}
