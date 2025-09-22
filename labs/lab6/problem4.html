@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Challenge: Catwalk</title>
+    <style>
+      #cat {
+        position: absolute;
+        left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <!-- Cat walking GIF -->
+      <img
+        id="cat"
+        src="https://www.kasandbox.org/programming-images/misc/cat-walk.gif"
+      />
+    </div>
+
+    <script>
+      let catEl = document.getElementById("cat");
+      let position = 0; 
+      let stepSize = 10; 
+
+      function walkTheCat() {
+        position += stepSize;
+        catEl.style.left = position + "px";
+
+        if (position >= 1000 || position + catEl.width >= window.innerWidth) {
+          clearInterval(timer);
+
+          catEl.style.left =
+            Math.min(1000, window.innerWidth - catEl.width) + "px";
+        }
+      }
+
+      let timer = setInterval(walkTheCat, 200);
+    </script>
+  </body>
+</html>
