@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parse Students File</title>
+</head>
+<body>
+  <h2>Reading Students Information</h2>
+  <ol id="studentsList"></ol>
+
+  <script>
+    async function loadStudents() {
+      try {
+        const response = await fetch("students.json");
+        if (!response.ok) {
+          throw new Error("Cannot load students.json");
+        }
+        const data = await response.json();
+
+        const list = document.getElementById("studentsList");
+        list.innerHTML = "";
+
+        data.wclass.forEach(entry => {
+          const student = entry.student;
+          const id = student["@attributes"].id;
+          const name = student.name;
+          const skill = student.skill;
+
+          const li = document.createElement("li");
+          li.innerHTML = `${id} <strong>${name}</strong> has skills <em>${skill}</em>`;
+          list.appendChild(li);
+        });
+      } catch (err) {
+        alert("Error: " + err.message);
+      }
+    }
+    window.onload = loadStudents;
+  </script>
+</body>
+</html>
