@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parsed Places Output (List Style)</title>
+  <style>
+    .place-entry {
+        display: block;
+    }
+    .name {
+      color: blue; 
+      font-weight: bold;
+    }
+    .location-line {
+      color: green; 
+    }
+  </style>
+</head>
+<body>
+  <div id="placesList">
+  </div>
+
+  <script>
+    async function loadPlaces() {
+      const outputDiv = document.getElementById("placesList");
+
+      try {
+        const response = await fetch("places.json");
+        
+        if (!response.ok) {
+          throw new Error(`Cannot load places.json: HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+
+        outputDiv.innerHTML = "";
+        let htmlContent = '';
+        
+        const results = data.results;
+        
+        const startIndex = 0; 
+              
+        for (let i = startIndex; i < results.length; i++) {
+          const place = results[i];
+          const lineNumber = i + 1;
+          
+          if (place.name && place.geometry && place.geometry.location) {
+            const name = place.name;
+            const lat = place.geometry.location.lat;
+            const lng = place.geometry.location.lng;
+            const locationStr = `${lat} ${lng}`;
+            
+            
+            htmlContent += `${lineNumber}. `;
+            htmlContent += `<span class="name">name = ${name}</span><br>`;
+            htmlContent += `<span class="location-line">location = ${locationStr}</span><br>`;
+          }
+        }
+        
+        outputDiv.innerHTML = htmlContent;
+
+
+      } catch (err) {
+        console.error("Error:", err);
+        outputDiv.innerHTML = `<p style="color: red;">Error: ${err.message}. Please ensure 'places.json' is accessible.</p>`;
+      }
+    }
+
+    window.onload = loadPlaces;
+  </script>
+</body>
+</html>

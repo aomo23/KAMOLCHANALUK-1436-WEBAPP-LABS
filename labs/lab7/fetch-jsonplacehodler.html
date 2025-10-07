@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding a new post</title>
+</head>
+<body>
+
+    <h1>Adding a new post</h1>
+
+    <div id="newPostJson">Loading...</div>
+    <div id="newPostDetails"></div>
+
+    <script>
+        const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+        const newPostData = {
+            userId: 11,
+            title: "Volleyball game this evening!",
+            body: "The game is between Thailand and Vietnam."
+        };
+
+        const fetchOptions = {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(newPostData),
+        };
+
+        async function addNewPost() {
+            try {
+                const response = await fetch(apiUrl, fetchOptions);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const post = await response.json();
+
+                const jsonStringOneLine = JSON.stringify(post);
+                
+                document.getElementById('newPostJson').textContent = jsonStringOneLine;
+                
+                document.getElementById('newPostDetails').innerHTML = 
+                    `The new post has title as **${post.title}** and body as **${post.body}**..`;
+
+            } catch (error) {
+                console.error('Error adding new post:', error);
+                document.getElementById('newPostJson').textContent = `Error: ${error.message}`;
+                document.getElementById('newPostDetails').textContent = 'Could not add the new post.';
+            }
+        }
+
+        addNewPost();
+    </script>
+
+</body>
+</html>
