@@ -1,15 +1,13 @@
 {
   "name": "lab8",
   "version": "1.0.0",
-  "description": "Simple interactive calculator",
   "type": "module",
-  "main": "calculator.js",
+  "main": "ip-api.js",
   "scripts": {
-    "calculator": "node calculator.js"
+    "start": "node ip-api.js"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "axios": "^1.12.2"
+    "axios": "^1.7.2",
+    "express": "^4.19.2"
   }
 }
