@@ -1,0 +1,22 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  margin: 20px 0;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
